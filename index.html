@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ajoyib o'yin</title>
+    
+    <link rel="stylesheet" href= "style.css">
+
+</head>
+<body>
+ 
+<div class="section">
+<div class="card">
+    <div class="batareeShape">
+        <div class="battareborder">
+            <div class="percetange">
+            </div>
+            <div class="foiz"></div>
+            <p class="charging"></p>
+        </div>
+    </div>
+</div>
+</div>
+    <script>
+navigator.getBattery().then(battery => {
+    var percetange= document.querySelector(".percetange");
+    var foiz= document.querySelector(".foiz"); 
+    var charging= document.querySelector(".charging");
+
+    function umumiy(){
+    quvvat()
+    quvvatolish()
+}
+
+umumiy();
+
+function quvvat(){
+    percetange.style.width=battery.level*100+"%";
+    foiz.innerHTML=battery.level*100 + "%";
+}
+
+function quvvatolish(){
+    charging.innerHTML=battery.charging ? "ZARYADSIZ" : "";
+}
+battery.addEventListener('levelchange', () => {
+    quvvat()
+} )
+battery.addEventListener('charginchange', () => {
+    quvvatolish()
+} )
+})
+
+
+
+
+    </script>
+</body>
+</html>
